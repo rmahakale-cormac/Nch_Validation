@@ -21,7 +21,7 @@ f_ext =".*"
 
 today = date.today()
 time = datetime.now()
-value10,amt10, price,value81, value71,amt71,value72,amt72,value82,amt81,amt82,value50,amt50,=0,0,0,0,0,0,0,0,0,0,0,0,0
+value10=amt10=price=value81=value71=amt71=value72=amt72=value82=amt81=amt82=value50=amt50=value20=amt20=value30=amt30=value61=amt61=value62=amt62=value63=amt63=value60=amt60=value64=amt64=value40=amt40=0
 
 #search all the files ending with .txt
 #file_names = [x for x in os.listdir(f_path) if x.endswith(f_ext)]
@@ -77,9 +77,40 @@ for names in file_names:
             value50 += 1
             intamt50 = int(paid_amt)
             amt72 = (amt50 + intamt50)
-
+        if claim_type == "20":
+            value50 += 1
+            intamt20 = int(paid_amt)
+            amt20 = (amt20 + intamt20)
+        if claim_type == "30":
+            value30 += 1
+            intamt30 = int(paid_amt)
+            amt30 = (amt30 + intamt30)
+        if claim_type == "60":
+            value60 += 1
+            intamt60 = int(paid_amt)
+            amt60 = (amt60 + intamt60)
+        if claim_type == "61":
+            value61 += 1
+            intamt61 = int(paid_amt)
+            amt61 = (amt61 + intamt61)
+        if claim_type == "62":
+            value62 += 1
+            intamt62 = int(paid_amt)
+            amt62 = (amt62 + intamt62)
+        if claim_type == "63":
+            value61 += 1
+            intamt63 = int(paid_amt)
+            amt63 = (amt63 + intamt63)
+        if claim_type == "64":
+            value64 += 1
+            intamt64 = int(paid_amt)
+            amt64 = (amt64 + intamt64)
+        if claim_type == "40":
+            value40 += 1
+            intamt40 = int(paid_amt)
+            amt61 = (amt40 + intamt40)
 awsmetadata = (str(value10) + ";" + str(amt10) + ";" + str(value71) + ";" + str(amt71) + ";" + str(value72) + ";" + str(amt72)+ str(value81) + ";" + str(amt81)+ str(value82) + ";" + str(amt82)+ str(value50) + ";" + str(amt50))
-value10,amt10, price,value81, value71,amt71,value72,amt72,value82,amt81,amt82,value50,amt50,=0,0,0,0,0,0,0,0,0,0,0,0,0
+value10=amt10=price=value81=value71=amt71=value72=amt72=value82=amt81=amt82=value50=amt50=value20=amt20=value30=amt30=value61=amt61=value62=amt62=value63=amt63=value60=amt60=value64=amt64=value40=amt40=0
 # print(awsmetadata)
 
 
