@@ -1,0 +1,46 @@
+---
+
+Resources:
+  CDNode:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-west-2a
+      ImageId: ami-775e4f16
+      InstanceType: t2.large
+      SubnetId: subnet-0648ad9dc2f57383d
+      ScurityGroups:
+        - !Ref CDNodeSG 
+      UserData: 
+        Fn::Base64:
+          !Sub
+              sudo yum update
+              sudo yum install python3
+              sudo pip3 install pandas
+              sudo pip3 install openpyxl
+              curl -O https://bootstrap.pypa.io/get-pip.py
+              python3 get-pip.py
+  Bastion:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-west-2a
+      ImageId: ami-08d489468314a58df
+      InstanceType: t2.micro
+      SubnetId: subnet-06861d10a54e283a7
+      UserData: 
+        Fn::Base64:
+          !Sub
+              sudo yum update
+
+  CDNodeSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security Group to allow CD node from BDC
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 1364
+        ToPort: 1364
+        CidrIp:	158.73.207.46/32
+
+
+
+  
